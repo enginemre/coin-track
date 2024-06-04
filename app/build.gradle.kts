@@ -38,6 +38,7 @@ dependencies {
     implementation(projects.core.designsystem)
     implementation(projects.authentication.ui)
     implementation(projects.home.ui)
+    implementation(projects.search.ui)
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)

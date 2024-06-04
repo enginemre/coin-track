@@ -12,13 +12,10 @@ fun NavController.navigateToHome(navOptions: NavOptions? = null) {
 }
 
 fun NavGraphBuilder.home(
-    navigateBack: () -> Unit,
 ) {
     composable(
         route = homeRoute,
     ) {
-        HomeRoute(
-            navigateBack = navigateBack,
-        )
+        HomeRoute()
     }
 }

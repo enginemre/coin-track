@@ -3,6 +3,9 @@ package com.engin.cointrack.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
+import com.engin.cointrack.home.ui.home
+import com.engin.cointrack.home.ui.navigateToHome
+import com.engin.cointrack.search.ui.search
 import com.engin.cointrack.ui.CoinTrackAppState
 import com.engin.cointrack.ui.login.login
 import com.engin.cointrack.ui.login.loginRoute
@@ -21,6 +24,9 @@ fun CoinTrackNavHost(
     ) {
         login(
             navigateBack = navController::navigateUp,
+            navigateHome = navController::navigateToHome
         )
+        home()
+        search()
     }
 }

@@ -18,11 +18,13 @@ class LoginViewModel @Inject constructor() : BaseViewModel<LoginViewState, Login
             LoginViewEvent.OnLoginClick -> onLoginClick()
             is LoginViewEvent.OnUserNameChange -> onUserNameChange(event.value)
             is LoginViewEvent.OnPasswordChange -> onPasswordChange(event.value)
+            else -> Unit
         }
     }
 
     private fun onLoginClick() {
         Log.d("LoginViewModel", "onLoginClick: ")
+        sendEvent(LoginViewEvent.NavigateHome)
     }
 
     private fun onPasswordChange(value: String) {

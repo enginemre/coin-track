@@ -30,7 +30,10 @@ fun CoinTrackApp(
             contentWindowInsets = WindowInsets(0, 0, 0, 0),
             bottomBar = {
                 if (appState.shouldShowBottomBar) {
-                    // TODO add bottom bar
+                    CoinTrackBottomBar(
+                        onNavigateToDestination = appState::navigateToTopLevelDestination,
+                        currentDestination = appState.currentDestination,
+                    )
                 }
             },
             modifier = modifier,
@@ -47,9 +50,3 @@ fun CoinTrackApp(
         }
     }
 }
-
-@Suppress("UnusedPrivateMember")
-private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) =
-    this?.hierarchy?.any {
-        it.route?.contains(destination.name, true) ?: false
-    } ?: false

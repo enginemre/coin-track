@@ -32,6 +32,6 @@ enum class TopLevelDestination(
         route = "saved",
         selectedIcon = Icons.Filled.Bookmark,
         unselectedIcon = Icons.Outlined.Bookmark,
-        iconTextId = R.string.search_label,
+        iconTextId = R.string.saved_label,
     ),
 }

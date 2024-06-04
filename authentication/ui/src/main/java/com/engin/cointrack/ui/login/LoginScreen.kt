@@ -48,13 +48,14 @@ import kotlinx.coroutines.flow.Flow
 @Composable
 fun LoginRoute(
     navigateBack: () -> Unit,
+    navigateHome: () -> Unit,
     viewModel: LoginViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     EventCollector(
         navigateBack = navigateBack,
-
+        navigateHome = navigateHome,
         uiEvent = viewModel.uiEvent,
     )
 
@@ -159,13 +160,16 @@ fun LoginScreen(
 @Composable
 fun EventCollector(
     navigateBack: () -> Unit,
+    navigateHome: () -> Unit,
     uiEvent: Flow<LoginViewEvent>,
 ) {
-    val navigateBackUpdated = rememberUpdatedState { navigateBack() }
+    val navigateBackState = rememberUpdatedState { navigateBack() }
+    val navigateHomeState = rememberUpdatedState { navigateHome() }
     LaunchedEffect(Unit) {
         uiEvent.collect { event ->
             when (event) {
-                LoginViewEvent.NavigateBack -> navigateBackUpdated.value.invoke()
+                LoginViewEvent.NavigateBack -> navigateBackState.value.invoke()
+                LoginViewEvent.NavigateHome -> navigateHomeState.value.invoke()
                 else -> Unit
             }
         }

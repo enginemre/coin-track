@@ -14,6 +14,7 @@ import androidx.navigation.navOptions
 import com.engin.cointrack.home.ui.homeRoute
 import com.engin.cointrack.home.ui.navigateToHome
 import com.engin.cointrack.navigation.TopLevelDestination
+import com.engin.cointrack.search.ui.navigateToSearch
 import kotlinx.coroutines.CoroutineScope
 
 @Composable
@@ -100,7 +101,7 @@ class CoinTrackAppState(
 
         when (topLevelDestination) {
             TopLevelDestination.Home -> navController.navigateToHome(topLevelNavOptions)
-            TopLevelDestination.Search -> Unit /*navController.navigateToBookmarks(topLevelNavOptions)*/
+            TopLevelDestination.Search -> navController.navigateToSearch(topLevelNavOptions)
             TopLevelDestination.Saved -> Unit /* navController.navigateToInterests(null, topLevelNavOptions)*/
         }
     }

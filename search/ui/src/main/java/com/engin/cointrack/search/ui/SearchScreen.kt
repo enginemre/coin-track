@@ -1,4 +1,4 @@
-package com.engin.cointrack.home.ui
+package com.engin.cointrack.search.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,23 +11,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-@Suppress("UnusedPrivateMember")
+import androidx.hilt.navigation.compose.hiltViewModel
+
 @Composable
-fun HomeRoute(
-    viewModel: HomeViewModel = hiltViewModel(),
+fun SearchRoute(
+    viewModel: SearchViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    HomeScreen(
+    SearchScreen(
         uiState = uiState,
     )
 }
 
 @Composable
-fun HomeScreen(
-    uiState: HomeViewState,
+fun SearchScreen(
+    uiState: SearchViewState,
     modifier: Modifier = Modifier,
 ) {
     Scaffold(
@@ -41,7 +41,7 @@ fun HomeScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Text(text = uiState.loading.toString())
+            Text(text = "Search")
         }
     }
 }
