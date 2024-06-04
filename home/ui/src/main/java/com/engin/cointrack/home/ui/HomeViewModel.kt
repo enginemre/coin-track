@@ -1,5 +1,6 @@
 package com.engin.cointrack.home.ui
 
+import android.util.Log
 import com.engin.cointrack.core.common.base.BaseViewModel
 import com.engin.cointrack.core.common.base.IViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -11,6 +12,7 @@ class HomeViewModel @Inject constructor() : BaseViewModel<HomeViewState, HomeVie
     override fun createInitialState(): HomeViewState = HomeViewState()
 
     override fun onEvent(event: HomeViewEvent) {
+        Log.d("HomeViewModel", "onEvent: $event")
     }
 }
 

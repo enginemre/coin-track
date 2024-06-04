@@ -33,5 +33,5 @@ enum class TopLevelDestination(
         selectedIcon = Icons.Filled.Bookmark,
         unselectedIcon = Icons.Outlined.Bookmark,
         iconTextId = R.string.search_label,
-        ),
+    ),
 }

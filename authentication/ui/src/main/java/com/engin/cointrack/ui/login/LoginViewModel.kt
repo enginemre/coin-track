@@ -1,5 +1,6 @@
 package com.engin.cointrack.ui.login
 
+import android.util.Log
 import com.engin.cointrack.core.common.base.BaseViewModel
 import com.engin.cointrack.core.common.base.IViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,6 +22,7 @@ class LoginViewModel @Inject constructor() : BaseViewModel<LoginViewState, Login
     }
 
     private fun onLoginClick() {
+        Log.d("LoginViewModel", "onLoginClick: ")
     }
 
     private fun onPasswordChange(value: String) {

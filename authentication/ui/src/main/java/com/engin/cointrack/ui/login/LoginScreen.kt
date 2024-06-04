@@ -27,6 +27,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
@@ -160,10 +161,11 @@ fun EventCollector(
     navigateBack: () -> Unit,
     uiEvent: Flow<LoginViewEvent>,
 ) {
+    val navigateBackUpdated = rememberUpdatedState { navigateBack() }
     LaunchedEffect(Unit) {
         uiEvent.collect { event ->
             when (event) {
-                LoginViewEvent.NavigateBack -> navigateBack()
+                LoginViewEvent.NavigateBack -> navigateBackUpdated.value.invoke()
                 else -> Unit
             }
         }

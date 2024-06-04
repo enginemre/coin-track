@@ -9,8 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.adaptive.WindowAdaptiveInfo
-import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -24,7 +22,6 @@ import com.engin.cointrack.navigation.TopLevelDestination
 fun CoinTrackApp(
     appState: CoinTrackAppState,
     modifier: Modifier = Modifier,
-    windowAdaptiveInfo: WindowAdaptiveInfo = currentWindowAdaptiveInfo(),
 ) {
     CoinTrackBackground {
         Scaffold(
@@ -33,6 +30,7 @@ fun CoinTrackApp(
             contentWindowInsets = WindowInsets(0, 0, 0, 0),
             bottomBar = {
                 if (appState.shouldShowBottomBar) {
+                    // TODO add bottom bar
                 }
             },
             modifier = modifier,
@@ -50,6 +48,7 @@ fun CoinTrackApp(
     }
 }
 
+@Suppress("UnusedPrivateMember")
 private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) =
     this?.hierarchy?.any {
         it.route?.contains(destination.name, true) ?: false

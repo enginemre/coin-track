@@ -99,7 +99,7 @@ class CoinTrackAppState(
         }
 
         when (topLevelDestination) {
-            TopLevelDestination.Home -> navController.navigateToHome(topLevelNavOptions) /*navController.navigateToForYou(topLevelNavOptions)*/
+            TopLevelDestination.Home -> navController.navigateToHome(topLevelNavOptions)
             TopLevelDestination.Search -> Unit /*navController.navigateToBookmarks(topLevelNavOptions)*/
             TopLevelDestination.Saved -> Unit /* navController.navigateToInterests(null, topLevelNavOptions)*/
         }

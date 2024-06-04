@@ -56,13 +56,14 @@ val LocalBackgroundTheme = staticCompositionLocalOf { BackgroundTheme() }
  * Multipreview annotation that represents light and dark themes. Add this annotation to a
  * composable to render the both themes.
  */
+@Suppress("PreviewAnnotationNaming")
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_NO, name = "Light theme")
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, name = "Dark theme")
 annotation class ThemePreviews
 
 @ThemePreviews
 @Composable
-fun BackgroundDefault() {
+private fun BackgroundDefault() {
     CoinTrackTheme {
         CoinTrackBackground(Modifier.size(100.dp), content = {})
     }

@@ -13,7 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-
+@Suppress("UnusedPrivateMember")
 @Composable
 fun HomeRoute(
     navigateBack: () -> Unit,
@@ -42,7 +42,7 @@ fun HomeScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Text(text = "Home")
+            Text(text = uiState.loading.toString())
         }
     }
 }

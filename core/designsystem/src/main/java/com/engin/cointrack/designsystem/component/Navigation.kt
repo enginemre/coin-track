@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
 
-@Composable
+/*@Composable
 fun CoinTrackNavigationSuiteScaffold(
     navigationSuiteItems: CoinTrackNavigationSuiteScope.() -> Unit,
     modifier: Modifier = Modifier,
@@ -67,9 +67,9 @@ fun CoinTrackNavigationSuiteScaffold(
     ) {
         content()
     }
-}
+}*/
 
-class CoinTrackNavigationSuiteScope internal constructor(
+/*class CoinTrackNavigationSuiteScope internal constructor(
     private val navigationSuiteScope: NavigationSuiteScope,
     private val navigationSuiteItemColors: NavigationSuiteItemColors,
 ) {
@@ -94,9 +94,9 @@ class CoinTrackNavigationSuiteScope internal constructor(
         colors = navigationSuiteItemColors,
         modifier = modifier,
     )
-}
+}*/
 
-@Composable
+/*@Composable
 fun RowScope.CoinTrackNavigationBarItem(
     selected: Boolean,
     onClick: () -> Unit,
@@ -123,9 +123,9 @@ fun RowScope.CoinTrackNavigationBarItem(
             indicatorColor = CoinTrackNavigationDefaults.navigationIndicatorColor(),
         ),
     )
-}
+}*/
 
-object CoinTrackNavigationDefaults {
+/*object CoinTrackNavigationDefaults {
     @Composable
     fun navigationContentColor() = MaterialTheme.colorScheme.onSurfaceVariant
 
@@ -134,4 +134,4 @@ object CoinTrackNavigationDefaults {
 
     @Composable
     fun navigationIndicatorColor() = MaterialTheme.colorScheme.primaryContainer
-}
+}*/
