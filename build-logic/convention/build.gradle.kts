@@ -18,7 +18,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "template.buildlogic"
+group = "com.engin.cointrack.buildlogic"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17

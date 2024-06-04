@@ -8,7 +8,7 @@ plugins {
 android {
 
     defaultConfig {
-        applicationId = "template.app.id"
+        applicationId = "com.engin.cointrack"
         versionCode = 1
         versionName = "1.0"
 
@@ -31,10 +31,13 @@ android {
         }
     }
 
-    namespace = "template"
+    namespace = "com.engin.cointrack"
 }
 
 dependencies {
+    implementation(projects.core.designsystem)
+    implementation(projects.authentication.ui)
+    implementation(projects.home.ui)
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)
@@ -47,6 +50,9 @@ dependencies {
     implementation(libs.moshi.kotlin.core)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.moshi)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.compose.material.icons.extended)
+    implementation(libs.androidx.compose.material3.adaptive)
 
     testImplementation(libs.junit4)
 

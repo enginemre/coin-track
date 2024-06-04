@@ -14,5 +14,14 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "template"
+rootProject.name = "CoinTrack"
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
+include(":core")
+include(":authentication")
+include(":core:designsystem")
+include(":authentication:ui")
+include(":core:common")
+include(":home")
+include(":home:ui")
