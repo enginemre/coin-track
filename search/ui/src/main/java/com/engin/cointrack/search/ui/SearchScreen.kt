@@ -11,8 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @Composable
 fun SearchRoute(
@@ -24,6 +24,7 @@ fun SearchRoute(
         uiState = uiState,
     )
 }
+
 
 @Composable
 fun SearchScreen(
@@ -41,7 +42,7 @@ fun SearchScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Text(text = "Search")
+            Text(text = "Search ${uiState.loading}")
         }
     }
 }

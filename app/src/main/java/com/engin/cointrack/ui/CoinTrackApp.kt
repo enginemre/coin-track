@@ -12,11 +12,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.navigation.NavDestination
-import androidx.navigation.NavDestination.Companion.hierarchy
 import com.engin.cointrack.designsystem.component.CoinTrackBackground
 import com.engin.cointrack.navigation.CoinTrackNavHost
-import com.engin.cointrack.navigation.TopLevelDestination
 
 @Composable
 fun CoinTrackApp(

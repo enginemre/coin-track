@@ -20,7 +20,7 @@ fun NavGraphBuilder.login(
     ) {
         LoginRoute(
             navigateBack = navigateBack,
-            navigateHome = navigateHome
+            navigateHome = navigateHome,
         )
     }
 }

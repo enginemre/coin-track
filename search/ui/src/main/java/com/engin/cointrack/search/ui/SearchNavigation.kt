@@ -11,8 +11,7 @@ fun NavController.navigateToSearch(navOptions: NavOptions? = null) {
     this.navigate(searchRoute, navOptions)
 }
 
-fun NavGraphBuilder.search(
-) {
+fun NavGraphBuilder.search() {
     composable(
         route = searchRoute,
     ) {

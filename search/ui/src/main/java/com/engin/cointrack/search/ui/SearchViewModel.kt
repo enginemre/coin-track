@@ -6,15 +6,15 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class SearchViewModel @Inject constructor(
-) : BaseViewModel<SearchViewState, SearchViewEvent>() {
+class SearchViewModel @Inject constructor() : BaseViewModel<SearchViewState, SearchViewEvent>() {
 
     override fun createInitialState(): SearchViewState = SearchViewState()
 
     override fun onEvent(event: SearchViewEvent) {
-
+        when (event) {
+            SearchViewEvent.NavigateBack -> TODO()
+        }
     }
-
 }
 
 data class SearchViewState(

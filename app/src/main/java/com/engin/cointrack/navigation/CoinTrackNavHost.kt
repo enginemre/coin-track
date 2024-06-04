@@ -24,7 +24,7 @@ fun CoinTrackNavHost(
     ) {
         login(
             navigateBack = navController::navigateUp,
-            navigateHome = navController::navigateToHome
+            navigateHome = navController::navigateToHome,
         )
         home()
         search()
