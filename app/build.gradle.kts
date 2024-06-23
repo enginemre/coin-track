@@ -36,9 +36,18 @@ android {
 
 dependencies {
     implementation(projects.core.designsystem)
+    implementation(projects.core.model)
+    implementation(projects.core.network)
     implementation(projects.authentication.ui)
     implementation(projects.home.ui)
+    implementation(projects.home.domain)
+    implementation(projects.home.data.domainImpl)
+    implementation(projects.home.data.persistence)
+    implementation(projects.home.data.persistenceImpl)
+    implementation(projects.home.data.api)
+    implementation(projects.home.data.apiImpl)
     implementation(projects.search.ui)
+    implementation(projects.coinDetail.ui)
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)
