@@ -48,6 +48,8 @@ dependencies {
     implementation(projects.home.data.apiImpl)
     implementation(projects.search.ui)
     implementation(projects.coinDetail.ui)
+//    implementation(projects.coinDetail.domain)
+    implementation(projects.coinDetail.data.domainImpl)
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)

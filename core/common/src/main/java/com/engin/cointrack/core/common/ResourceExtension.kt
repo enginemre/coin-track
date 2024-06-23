@@ -1,4 +1,4 @@
-package com.engin.cointrack.core.common.base
+package com.engin.cointrack.core.common
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

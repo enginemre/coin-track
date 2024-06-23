@@ -1,4 +1,4 @@
-package com.engin.cointrack.core.common.base.qualifiers
+package com.engin.cointrack.core.common.qualifiers
 
 import javax.inject.Qualifier
 

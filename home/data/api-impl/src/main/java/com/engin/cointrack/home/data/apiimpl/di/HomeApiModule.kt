@@ -1,7 +1,7 @@
 package com.engin.cointrack.home.data.apiimpl.di
 
-import com.engin.cointrack.core.common.base.qualifiers.KtorSource
-import com.engin.cointrack.core.common.base.qualifiers.RetrofitSource
+import com.engin.cointrack.core.common.qualifiers.KtorSource
+import com.engin.cointrack.core.common.qualifiers.RetrofitSource
 import com.engin.cointrack.home.data.api.HomeRemoteSource
 import com.engin.cointrack.home.data.apiimpl.BuildConfig
 import com.engin.cointrack.home.data.apiimpl.ktor.HomeKtorDataSourceImpl

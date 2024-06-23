@@ -2,7 +2,7 @@ package com.engin.cointrack.home.data.persistanceimpl.di
 
 import android.content.Context
 import androidx.room.Room
-import com.engin.cointrack.core.common.base.qualifiers.RoomSource
+import com.engin.cointrack.core.common.qualifiers.RoomSource
 import com.engin.cointrack.home.data.persistance.HomeLocalDataSource
 import com.engin.cointrack.home.data.persistanceimpl.mapper.HomeMapper
 import com.engin.cointrack.home.data.persistanceimpl.room.HomeRoomDataSourceImpl

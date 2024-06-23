@@ -7,8 +7,8 @@ import androidx.paging.PagingData
 import androidx.paging.map
 import com.engin.cointrack.core.common.base.dispatcher.CoinTrackDispatcher
 import com.engin.cointrack.core.common.base.dispatcher.Dispatcher
-import com.engin.cointrack.core.common.base.qualifiers.RetrofitSource
-import com.engin.cointrack.core.common.base.qualifiers.RoomSource
+import com.engin.cointrack.core.common.qualifiers.RetrofitSource
+import com.engin.cointrack.core.common.qualifiers.RoomSource
 import com.engin.cointrack.domain.model.Coin
 import com.engin.cointrack.domain.usecase.GetCoinsUseCase
 import com.engin.cointrack.home.data.api.HomeRemoteSource

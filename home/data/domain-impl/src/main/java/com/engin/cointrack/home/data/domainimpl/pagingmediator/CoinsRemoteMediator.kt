@@ -4,8 +4,8 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
-import com.engin.cointrack.core.common.base.qualifiers.RetrofitSource
-import com.engin.cointrack.core.common.base.qualifiers.RoomSource
+import com.engin.cointrack.core.common.qualifiers.RetrofitSource
+import com.engin.cointrack.core.common.qualifiers.RoomSource
 import com.engin.cointrack.home.data.api.HomeRemoteSource
 import com.engin.cointrack.home.data.persistance.HomeLocalDataSource
 import com.engin.cointrack.home.data.persistanceimpl.room.entity.CoinEntity

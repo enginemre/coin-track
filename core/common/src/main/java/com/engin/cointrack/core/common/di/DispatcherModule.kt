@@ -1,4 +1,4 @@
-package com.engin.cointrack.core.common.base.di
+package com.engin.cointrack.core.common.di
 
 import com.engin.cointrack.core.common.base.dispatcher.CoinTrackDispatcher
 import com.engin.cointrack.core.common.base.dispatcher.Dispatcher
