@@ -19,12 +19,10 @@ fun SearchRoute(
     viewModel: SearchViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-
     SearchScreen(
         uiState = uiState,
     )
 }
-
 
 @Composable
 fun SearchScreen(

@@ -11,10 +11,14 @@ fun NavController.navigateToHome(navOptions: NavOptions? = null) {
     this.navigate(homeRoute, navOptions)
 }
 
-fun NavGraphBuilder.home() {
+fun NavGraphBuilder.home(
+    navigateToCoinDetail: (String) -> Unit,
+) {
     composable(
         route = homeRoute,
     ) {
-        HomeRoute()
+        HomeRoute(
+            navigateCoinDetail = navigateToCoinDetail,
+        )
     }
 }

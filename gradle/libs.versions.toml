@@ -1,5 +1,10 @@
 [versions]
 # Project
+ktorClientAndroid = "2.3.3"
+ktorClientContentNegotiation = "2.3.3"
+ktorClientCore = "2.3.3"
+ktorClientLogging = "2.3.2"
+ktorSerializationKotlinxJson = "2.3.3"
 minSdk = "21"
 compile-sdk = "35"
 compose-compiler = "1.5.7"
@@ -16,7 +21,6 @@ detekt-plugin = "1.22.0"
 kotlinter-plugin = "3.14.0"
 
 # Libraries
-accompanist = "0.32.0"
 andrdoid-desugar-jdk-libs = "2.0.4"
 androidx-activity = "1.8.2"
 androidx-appcompat = "1.6.1"
@@ -37,24 +41,29 @@ androidxComposeMaterial3AdaptiveNavigationSuite = "1.0.0-alpha07"
 androidxComposeRuntimeTracing = "1.0.0-beta01"
 compose-material3 = "1.1.0-alpha06"
 compose-runtime-tracing = "1.0.0-alpha01"
+compose-paging = "3.3.0-alpha02"
+chucker = "3.5.2"
 detekt-compose-rules = "0.3.11"
 hilt-navigation-compose = "1.2.0"
 firebaseBom = "31.2.0"
 espresso = "3.5.1"
 junit = "4.13.2"
 kotlinx-coroutines = "1.8.0"
+kotlinx-serialization = "1.9.0"
 ktx-core = "1.12.0"
+okhttp = "4.12.0"
 leakCanary = "2.10"
 lifecycle = "2.7.0"
 material = "1.11.0"
 moshi = "1.15.0"
+paging = "3.2.1"
 retrofit = "2.9.0"
 room = "2.6.1"
+secrets = "2.0.1"
 jetbrainsKotlinJvm = "1.9.0"
 uiTextGoogleFonts = "1.6.7"
 
 [libraries]
-accompanist-permissions = { group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "accompanist" }
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "andrdoid-desugar-jdk-libs" }
 android-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidx-activity" }
@@ -92,9 +101,12 @@ compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-mani
 compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 compose-ui-util = { group = "androidx.compose.ui", name = "ui-util" }
+compose-paging = { group = "androidx.paging", name = "paging-compose", version.ref = "compose-paging" }
 coil-kt = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 coil-kt-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 coil-kt-svg = { group = "io.coil-kt", name = "coil-svg", version.ref = "coil" }
+chucker = { group = "com.github.chuckerteam.chucker", name = "library", version.ref = "chucker" }
+chucker-no-op = { group = "com.github.chuckerteam.chucker", name = "library-no-op", version.ref = "chucker" }
 hilt-android-core = { module = "com.google.dagger:hilt-android", version.ref = "dagger-plugin" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger-plugin" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation-compose" }
@@ -104,12 +116,21 @@ kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-cor
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
 junit4 = { module = "junit:junit", version.ref = "junit" }
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktorClientAndroid" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorClientContentNegotiation" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorClientCore" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktorClientLogging" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorSerializationKotlinxJson" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakCanary" }
 moshi-kotlin-core = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
 moshi-kotlin-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
+paging = { group = "androidx.paging", name = "paging-runtime", version.ref = "paging" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
 detekt-compose-rules = { group = "io.nlopez.compose.rules", name = "detekt", version.ref = "detekt-compose-rules" }
+
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle-plugin" }
@@ -128,6 +149,8 @@ com-android-test = { id = "com.android.test", version.ref = "com-android-test" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt-plugin" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter-plugin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp-plugin" }
+kotlinx-serialization = {id = "org.jetbrains.kotlin.plugin.serialization", version.ref="kotlinx-serialization"}
+secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secrets" }
 
 convention-android-application = { id = "convention.android.application", version = "unspecified" }
 convention-android-application-compose = { id = "convention.android.application.compose", version = "unspecified" }
