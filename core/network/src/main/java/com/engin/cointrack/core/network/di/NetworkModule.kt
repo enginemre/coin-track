@@ -6,6 +6,7 @@ import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.chuckerteam.chucker.api.RetentionManager
 import com.engin.cointrack.core.network.BuildConfig
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -62,6 +63,7 @@ object NetworkModule {
     fun provideMoshiConverterFactory(): MoshiConverterFactory {
         val moshi =
             Moshi.Builder()
+                .add(KotlinJsonAdapterFactory())
                 .build()
         return MoshiConverterFactory.create(moshi)
     }

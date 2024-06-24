@@ -94,7 +94,7 @@ androidx-compose-runtime-tracing = { group = "androidx.compose.runtime", name = 
 androidx-lifecycle-runtimeCompose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
 androidx-lifecycle-viewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
-compose-material = { group = "androidx.compose.material3", name = "material3" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 compose-ui = { group = "androidx.compose.ui", name = "ui" }
 compose-ui-test-junit = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
@@ -127,6 +127,8 @@ leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.re
 moshi-kotlin-core = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
 moshi-kotlin-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
 paging = { group = "androidx.paging", name = "paging-runtime", version.ref = "paging" }
+paging-common = { group = "androidx.paging", name = "paging-common", version.ref = "paging" }
+room-common = {group = "androidx.room", name = "room-common", version.ref ="room"}
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
 detekt-compose-rules = { group = "io.nlopez.compose.rules", name = "detekt", version.ref = "detekt-compose-rules" }
@@ -158,6 +160,7 @@ convention-android-application-firebase = { id = "convention.android.application
 convention-android-application-flavors = { id = "convention.android.application.flavors", version = "unspecified" }
 convention-android-application-jacoco = { id = "convention.android.application.jacoco", version = "unspecified" }
 convention-android-feature = { id = "convention.android.feature", version = "unspecified" }
+convention-android-data = { id = "convention.android.data", version = "unspecified" }
 convention-android-hilt = { id = "convention.android.hilt", version = "unspecified" }
 convention-android-library = { id = "convention.android.library", version = "unspecified" }
 convention-android-library-compose = { id = "convention.android.library.compose", version = "unspecified" }
