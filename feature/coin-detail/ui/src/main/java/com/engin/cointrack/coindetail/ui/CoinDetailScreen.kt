@@ -179,6 +179,7 @@ fun ShimmerCoinDetailContent(
                         modifier = Modifier
                             .width(100.dp)
                             .height(16.dp)
+                            .clip(RoundedCornerShape(12.dp))
                             .shimmerEffect(),
                     )
                     Spacer(modifier = Modifier.height(8.dp))
@@ -186,6 +187,7 @@ fun ShimmerCoinDetailContent(
                         modifier = Modifier
                             .width(50.dp)
                             .height(16.dp)
+                            .clip(RoundedCornerShape(12.dp))
                             .shimmerEffect(),
                     )
                 }
@@ -193,6 +195,7 @@ fun ShimmerCoinDetailContent(
                     modifier = Modifier
                         .width(86.dp)
                         .height(16.dp)
+                        .clip(RoundedCornerShape(12.dp))
                         .shimmerEffect(),
                 )
             }
