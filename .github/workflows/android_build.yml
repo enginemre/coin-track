@@ -33,8 +33,7 @@ jobs:
         env:
             BACKEND_URL: ${{ secrets.BACKEND_URL }}
         run: |
-            sed "s|BACKEND_URL|BACKEND_URL|g;" secrets.defaults.properties > local.properties
-
+            echo "BACKEND_URL=${BACKEND_URL}" > secrets.defaults.properties
       - name: Lint Checks
         run: ./gradlew detektAll lintKotlin lint
 
