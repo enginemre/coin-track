@@ -1,12 +1,13 @@
 plugins {
-    alias(libs.plugins.convention.android.library)
-    alias(libs.plugins.convention.android.hilt)
+    id("java-library")
+    alias(libs.plugins.jetbrains.kotlin.jvm)
 }
 
-android {
-    namespace = "com.engin.cointrack.core.common"
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
-dependencies {
-    implementation(libs.kotlinx.coroutines.android)
+dependencies{
+    implementation(libs.kotlinx.coroutines.core)
 }

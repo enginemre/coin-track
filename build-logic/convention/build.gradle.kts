@@ -58,6 +58,10 @@ gradlePlugin {
             id = "convention.android.feature"
             implementationClass = "AndroidFeatureConventionPlugin"
         }
+        register("androidData") {
+            id = "convention.android.data"
+            implementationClass = "AndroidDataConventionPlugin"
+        }
         register("androidLibraryJacoco") {
             id = "convention.android.library.jacoco"
             implementationClass = "AndroidLibraryJacocoConventionPlugin"
