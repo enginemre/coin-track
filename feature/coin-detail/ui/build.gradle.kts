@@ -10,5 +10,7 @@ android {
 
 dependencies {
     implementation(projects.feature.coinDetail.domain)
+    implementation(projects.core.domain)
+    implementation(projects.core.model)
     implementation(libs.androidx.activity.compose)
 }

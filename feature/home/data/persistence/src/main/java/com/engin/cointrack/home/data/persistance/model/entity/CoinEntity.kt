@@ -2,7 +2,7 @@ package com.engin.cointrack.home.data.persistance.model.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.engin.cointrack.domain.model.Coin
+import com.engin.cointrack.core.model.Coin
 
 @Entity(tableName = "coins")
 data class CoinEntity(

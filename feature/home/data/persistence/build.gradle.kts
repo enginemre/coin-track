@@ -11,6 +11,7 @@ java {
 
 dependencies {
     implementation(projects.feature.home.domain)
+    implementation(projects.core.model)
     implementation(libs.paging.common)
     implementation(libs.room.common)
 }

@@ -8,6 +8,7 @@ android {
 }
 
 dependencies {
+    implementation(projects.core.domain)
     implementation(projects.feature.coinDetail.domain)
     implementation(projects.feature.coinDetail.data.api)
 }

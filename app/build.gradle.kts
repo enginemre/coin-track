@@ -54,6 +54,11 @@ dependencies {
     implementation(projects.feature.coinDetail.data.api)
     implementation(projects.feature.coinDetail.data.apiImpl)
     implementation(projects.feature.coinDetail.data.domainImpl)
+    implementation(projects.feature.favourites.ui)
+    implementation(projects.feature.favourites.domain)
+    implementation(projects.feature.favourites.data.domainImpl)
+    implementation(projects.feature.favourites.data.persistance)
+    implementation(projects.feature.favourites.data.persistanceImpl)
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)

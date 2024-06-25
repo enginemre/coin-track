@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import com.engin.cointrack.coindetail.ui.coinDetail
 import com.engin.cointrack.coindetail.ui.navigateToCoinDetail
+import com.engin.cointrack.feature.favourite.ui.favourite
 import com.engin.cointrack.home.ui.home
 import com.engin.cointrack.home.ui.navigateToHome
 import com.engin.cointrack.search.ui.search
@@ -32,6 +33,11 @@ fun CoinTrackNavHost(
             navigateToCoinDetail = navController::navigateToCoinDetail,
         )
         search()
-        coinDetail()
+        favourite(
+            navigateCoinDetail = navController::navigateToCoinDetail,
+        )
+        coinDetail(
+            navigateBack = navController::navigateUp,
+        )
     }
 }

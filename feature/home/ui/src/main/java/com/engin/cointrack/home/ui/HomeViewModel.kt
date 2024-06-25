@@ -6,7 +6,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.engin.cointrack.core.common.base.BaseViewModel
 import com.engin.cointrack.core.common.base.IViewState
-import com.engin.cointrack.domain.model.Coin
+import com.engin.cointrack.core.model.Coin
 import com.engin.cointrack.domain.usecase.GetCoinsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -36,7 +36,7 @@ data class HomeViewState(
     val errorMessage: String? = null,
 ) : IViewState
 
-val shimmerList = listOf(
+internal val shimmerList = listOf(
     Coin(
         uniqueId = 1,
         id = "",

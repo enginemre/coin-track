@@ -9,7 +9,7 @@ import com.engin.cointrack.core.data.dispatcher.CoinTrackDispatcher
 import com.engin.cointrack.core.data.dispatcher.Dispatcher
 import com.engin.cointrack.core.data.qualifiers.RetrofitSource
 import com.engin.cointrack.core.data.qualifiers.RoomSource
-import com.engin.cointrack.domain.model.Coin
+import com.engin.cointrack.core.model.Coin
 import com.engin.cointrack.domain.usecase.GetCoinsUseCase
 import com.engin.cointrack.home.data.api.HomeRemoteSource
 import com.engin.cointrack.home.data.domainimpl.pagingmediator.CoinsRemoteMediator

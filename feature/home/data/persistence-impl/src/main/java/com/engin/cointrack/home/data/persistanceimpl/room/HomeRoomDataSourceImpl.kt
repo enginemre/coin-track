@@ -2,7 +2,7 @@ package com.engin.cointrack.home.data.persistanceimpl.room
 
 import androidx.paging.PagingSource
 import androidx.room.withTransaction
-import com.engin.cointrack.domain.model.Coin
+import com.engin.cointrack.core.model.Coin
 import com.engin.cointrack.home.data.persistance.HomeLocalDataSource
 import com.engin.cointrack.home.data.persistance.model.entity.CoinEntity
 import com.engin.cointrack.home.data.persistance.model.entity.toCoin

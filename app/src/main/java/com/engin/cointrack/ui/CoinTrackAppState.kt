@@ -11,10 +11,13 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
+import com.engin.cointrack.feature.favourite.ui.favouriteRoute
+import com.engin.cointrack.feature.favourite.ui.navigateToFavourite
 import com.engin.cointrack.home.ui.homeRoute
 import com.engin.cointrack.home.ui.navigateToHome
 import com.engin.cointrack.navigation.TopLevelDestination
 import com.engin.cointrack.search.ui.navigateToSearch
+import com.engin.cointrack.search.ui.searchRoute
 import kotlinx.coroutines.CoroutineScope
 
 @Composable
@@ -58,8 +61,8 @@ class CoinTrackAppState(
         @Composable get() = when (currentDestination?.route) {
             // TODO replace with original route
             homeRoute -> TopLevelDestination.Home
-            "SearchRoute" -> TopLevelDestination.Search
-            "SavedRoute" -> TopLevelDestination.Saved
+            searchRoute -> TopLevelDestination.Search
+            favouriteRoute -> TopLevelDestination.Saved
             else -> null
         }
 
@@ -96,13 +99,13 @@ class CoinTrackAppState(
             // reselecting the same item
             launchSingleTop = true
             // Restore state when reselecting a previously selected item
-            restoreState = true
+            restoreState = topLevelDestination != TopLevelDestination.Saved
         }
 
         when (topLevelDestination) {
             TopLevelDestination.Home -> navController.navigateToHome(topLevelNavOptions)
             TopLevelDestination.Search -> navController.navigateToSearch(topLevelNavOptions)
-            TopLevelDestination.Saved -> Unit /* navController.navigateToInterests(null, topLevelNavOptions)*/
+            TopLevelDestination.Saved -> navController.navigateToFavourite(topLevelNavOptions)
         }
     }
 }

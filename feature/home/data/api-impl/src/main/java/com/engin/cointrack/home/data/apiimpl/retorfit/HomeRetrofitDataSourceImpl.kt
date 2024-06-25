@@ -1,7 +1,7 @@
 package com.engin.cointrack.home.data.apiimpl.retorfit
 
+import com.engin.cointrack.core.model.Coin
 import com.engin.cointrack.core.network.util.getBodyOrThrowError
-import com.engin.cointrack.domain.model.Coin
 import com.engin.cointrack.home.data.api.HomeRemoteSource
 import com.engin.cointrack.home.data.apiimpl.mapper.HomeMapper
 import javax.inject.Inject

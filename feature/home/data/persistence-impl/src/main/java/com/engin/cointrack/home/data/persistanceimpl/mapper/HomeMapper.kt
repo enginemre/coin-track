@@ -1,6 +1,6 @@
 package com.engin.cointrack.home.data.persistanceimpl.mapper
 
-import com.engin.cointrack.domain.model.Coin
+import com.engin.cointrack.core.model.Coin
 import com.engin.cointrack.home.data.persistance.model.entity.CoinEntity
 import javax.inject.Inject
 

@@ -9,6 +9,7 @@ java {
 }
 
 dependencies {
+    implementation(projects.core.model)
     implementation(projects.feature.home.domain)
     implementation(libs.kotlinx.coroutines.core)
 }

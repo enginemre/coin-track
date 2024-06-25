@@ -10,6 +10,7 @@ java {
 
 dependencies {
     implementation(projects.core.common)
+    implementation(projects.core.model)
     implementation(libs.paging.common)
     implementation(libs.kotlinx.coroutines.core)
 }

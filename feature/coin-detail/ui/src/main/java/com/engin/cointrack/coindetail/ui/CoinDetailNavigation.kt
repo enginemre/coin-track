@@ -27,7 +27,9 @@ fun NavController.navigateToCoinDetail(id: String, navOptions: NavOptions? = nul
     this.navigate(route, navOptions)
 }
 
-fun NavGraphBuilder.coinDetail() {
+fun NavGraphBuilder.coinDetail(
+    navigateBack: () -> Unit,
+) {
     composable(
         route = coinDetailRoute.plus("/{$idArg}"),
         arguments = listOf(
@@ -36,6 +38,8 @@ fun NavGraphBuilder.coinDetail() {
             },
         ),
     ) {
-        CoinDetailRoute()
+        CoinDetailRoute(
+            navigateBack = navigateBack,
+        )
     }
 }

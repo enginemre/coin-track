@@ -1,4 +1,4 @@
-package com.engin.cointrack.domain.model
+package com.engin.cointrack.core.model
 
 data class Coin(
     val uniqueId: Int,

@@ -40,8 +40,8 @@ import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemContentType
 import androidx.paging.compose.itemKey
+import com.engin.cointrack.core.model.Coin
 import com.engin.cointrack.designsystem.component.ErrorContent
-import com.engin.cointrack.domain.model.Coin
 import com.engin.cointrack.feature.home.ui.R
 import com.engin.cointrack.home.ui.component.CoinCard
 import com.engin.cointrack.home.ui.component.PagingError

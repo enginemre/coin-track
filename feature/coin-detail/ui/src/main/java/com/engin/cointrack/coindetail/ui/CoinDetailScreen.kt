@@ -15,15 +15,27 @@ import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.outlined.ImageNotSupported
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,35 +48,68 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.SubcomposeAsyncImage
 import com.engin.cointrack.coindetail.domain.model.CoinDetail
+import com.engin.cointrack.coindetail.domain.model.toCoin
 import com.engin.cointrack.designsystem.component.ErrorContent
 import com.engin.cointrack.designsystem.component.ThemePreviews
 import com.engin.cointrack.designsystem.shimmerEffect
 import com.engin.cointrack.designsystem.theme.CoinTrackTheme
 import com.engin.cointrack.feature.coindetail.ui.R
+import kotlinx.coroutines.launch
 
 @Composable
 fun CoinDetailRoute(
+    navigateBack: () -> Unit,
     viewModel: CoinDetailViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     val coinDetailState by viewModel.coinDetailState.collectAsStateWithLifecycle()
 
+    LaunchedEffect(Unit) {
+        viewModel.refresh()
+    }
+
     CoinDetailScreen(
         uiState = uiState,
+        navigateBack = navigateBack,
+        onViewEvent = viewModel::onEvent,
         coinDetailState = coinDetailState,
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CoinDetailScreen(
     uiState: CoinDetailViewState,
+    navigateBack: () -> Unit,
+    onViewEvent: (CoinDetailViewEvent) -> Unit,
     coinDetailState: CoinDetail?,
     modifier: Modifier = Modifier,
 ) {
+    val snackBarHostState = remember { SnackbarHostState() }
+    SnackBar(
+        showSnackBar = uiState.showSnackBar,
+        message = uiState.snackBarMessage,
+        snackBarHostState = snackBarHostState,
+    )
     Scaffold(
         modifier = modifier,
+        snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
         contentWindowInsets = WindowInsets.systemBars,
+        topBar = {
+            CenterAlignedTopAppBar(
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color.Transparent,
+                    titleContentColor = MaterialTheme.colorScheme.onSurface,
+                ),
+                title = { Text(text = stringResource(id = R.string.coin_detail_title)) },
+                navigationIcon = {
+                    IconButton(onClick = navigateBack) {
+                        Icon(imageVector = Icons.AutoMirrored.Default.ArrowBack, contentDescription = null)
+                    }
+                },
+            )
+        },
     ) { paddingValues ->
         Column(
             modifier = Modifier
@@ -129,13 +174,32 @@ fun CoinDetailScreen(
                                 )
                             }
                         }
-                        Button(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 16.dp),
-                            onClick = { /*TODO*/ },
+                        Column(
+                            modifier = Modifier.padding(horizontal = 16.dp),
                         ) {
-                            Text(text = stringResource(R.string.add_to_watchlist))
+                            if (coinDetailState.isFavourite) {
+                                Button(
+                                    modifier = Modifier
+                                        .fillMaxWidth(),
+                                    colors = ButtonDefaults.buttonColors(
+                                        containerColor = Color.Red,
+                                        contentColor = Color.White,
+                                    ),
+                                    onClick = remember {
+                                        { onViewEvent(CoinDetailViewEvent.OnRemoveFavouriteClick(coinDetailState.toCoin())) }
+                                    },
+                                ) {
+                                    Text(text = stringResource(R.string.remove_from_watchlist))
+                                }
+                            } else {
+                                Button(
+                                    modifier = Modifier
+                                        .fillMaxWidth(),
+                                    onClick = remember { { onViewEvent(CoinDetailViewEvent.OnFavouriteClick(coinDetailState.toCoin())) } },
+                                ) {
+                                    Text(text = stringResource(R.string.add_to_watchlist))
+                                }
+                            }
                         }
                     }
                 } ?: ErrorContent(
@@ -211,12 +275,33 @@ fun ShimmerCoinDetailContent(
     }
 }
 
+@Composable
+fun SnackBar(
+    showSnackBar: Boolean,
+    message: String,
+    snackBarHostState: SnackbarHostState,
+) {
+    val scope = rememberCoroutineScope()
+    LaunchedEffect(showSnackBar) {
+        if (showSnackBar) {
+            scope.launch {
+                snackBarHostState.showSnackbar(
+                    message = message,
+                    duration = SnackbarDuration.Short,
+                )
+            }
+        }
+    }
+}
+
 @ThemePreviews
 @Composable
 private fun CoinDetailScreenPrev() {
     CoinTrackTheme {
         CoinDetailScreen(
             uiState = CoinDetailViewState(),
+            onViewEvent = {},
+            navigateBack = {},
             coinDetailState = CoinDetail("btc", "Bitcoin", "1", "BTC", "69,954.99 $"),
         )
     }
@@ -228,6 +313,8 @@ private fun CoinDetailScreenErrorPrev() {
     CoinTrackTheme {
         CoinDetailScreen(
             uiState = CoinDetailViewState(),
+            navigateBack = {},
+            onViewEvent = {},
             coinDetailState = null,
         )
     }
@@ -239,6 +326,8 @@ private fun CoinDetailShimmerPrev() {
     CoinTrackTheme {
         CoinDetailScreen(
             uiState = CoinDetailViewState(loading = true),
+            navigateBack = {},
+            onViewEvent = {},
             coinDetailState = null,
         )
     }

@@ -1,10 +1,12 @@
 [versions]
 # Project
+kotlinxCollectionsImmutable = "0.3.7"
 ktorClientAndroid = "2.3.3"
 ktorClientContentNegotiation = "2.3.3"
 ktorClientCore = "2.3.3"
 ktorClientLogging = "2.3.2"
 ktorSerializationKotlinxJson = "2.3.3"
+materialVersion = "1.6.8"
 minSdk = "21"
 compile-sdk = "35"
 compose-compiler = "1.5.7"
@@ -70,6 +72,7 @@ androidx-activity-compose = { group = "androidx.activity", name = "activity-comp
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx-core" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-material-pull-to-refresh = { module = "androidx.compose.material:material", version.ref = "materialVersion" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
@@ -112,6 +115,7 @@ hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", ve
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation-compose" }
 hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "dagger-plugin" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "dagger-plugin" }
+kotlinx-collections-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "kotlinxCollectionsImmutable" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }

@@ -9,9 +9,10 @@ android {
 
 dependencies {
     implementation(projects.feature.home.domain)
+    implementation(projects.core.model)
     implementation(libs.coil.kt.compose)
     implementation(libs.coil.kt)
-    implementation("androidx.compose.material:material:1.4.0-beta01")
+    implementation(libs.androidx.material.pull.to.refresh)
     implementation(libs.compose.paging)
     implementation(libs.androidx.activity.compose)
 }

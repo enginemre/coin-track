@@ -1,6 +1,7 @@
 package com.engin.cointrack.home.data.api
 
-import com.engin.cointrack.domain.model.Coin
+import com.engin.cointrack.core.model.Coin
+
 
 interface HomeRemoteSource {
     suspend fun getCoinList(
