@@ -29,6 +29,12 @@ jobs:
           # Only write to the cache for builds on the 'development' branch
           cache-read-only: ${{ github.ref != 'refs/heads/development' }}
 
+      - name: Setup secrets
+        env:
+            BACKEND_URL: ${{ secrets.BACKEND_URL }}
+        run: |
+            sed "s|BACKEND_URL|BACKEND_URL|g;" secrets.defaults.properties > local.properties
+
       - name: Lint Checks
         run: ./gradlew detektAll lintKotlin lint
 
