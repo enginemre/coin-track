@@ -22,6 +22,9 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -52,15 +55,18 @@ fun LoginRoute(
     viewModel: LoginViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val snackBarHostState = remember { SnackbarHostState() }
 
     EventCollector(
         navigateBack = navigateBack,
         navigateHome = navigateHome,
+        snackBarHostState = snackBarHostState,
         uiEvent = viewModel.uiEvent,
     )
 
     LoginScreen(
         onViewEvent = viewModel::onEvent,
+        snackBarHostState = snackBarHostState,
         uiState = uiState,
     )
 }
@@ -68,11 +74,13 @@ fun LoginRoute(
 @Composable
 fun LoginScreen(
     uiState: LoginViewState,
+    snackBarHostState: SnackbarHostState,
     onViewEvent: (LoginViewEvent) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Scaffold(
         modifier = modifier,
+        snackbarHost = { SnackbarHost(snackBarHostState) },
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
     ) { paddingValues ->
         Column(
@@ -90,7 +98,7 @@ fun LoginScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 12.dp),
-                    value = uiState.userName,
+                    value = uiState.email,
                     interactionSource = userNameInteractionSource,
                     onValueChange = { onViewEvent(LoginViewEvent.OnUserNameChange(it)) },
                     label = {
@@ -161,6 +169,7 @@ fun LoginScreen(
 fun EventCollector(
     navigateBack: () -> Unit,
     navigateHome: () -> Unit,
+    snackBarHostState: SnackbarHostState,
     uiEvent: Flow<LoginViewEvent>,
 ) {
     val navigateBackState = rememberUpdatedState { navigateBack() }
@@ -170,6 +179,12 @@ fun EventCollector(
             when (event) {
                 LoginViewEvent.NavigateBack -> navigateBackState.value.invoke()
                 LoginViewEvent.NavigateHome -> navigateHomeState.value.invoke()
+                is LoginViewEvent.ShowSnackBar -> {
+                    snackBarHostState.showSnackbar(
+                        message = event.message,
+                        duration = SnackbarDuration.Short,
+                    )
+                }
                 else -> Unit
             }
         }

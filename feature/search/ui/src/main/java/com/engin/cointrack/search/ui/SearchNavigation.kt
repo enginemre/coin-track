@@ -11,10 +11,14 @@ fun NavController.navigateToSearch(navOptions: NavOptions? = null) {
     this.navigate(searchRoute, navOptions)
 }
 
-fun NavGraphBuilder.search() {
+fun NavGraphBuilder.search(
+    navigateCoinDetail: (String) -> Unit,
+) {
     composable(
         route = searchRoute,
     ) {
-        SearchRoute()
+        SearchRoute(
+            navigateCoinDetail = navigateCoinDetail,
+        )
     }
 }

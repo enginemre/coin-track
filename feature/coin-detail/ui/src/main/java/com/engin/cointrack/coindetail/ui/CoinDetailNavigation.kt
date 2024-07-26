@@ -1,5 +1,7 @@
 package com.engin.cointrack.coindetail.ui
 
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.core.tween
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -32,6 +34,30 @@ fun NavGraphBuilder.coinDetail(
 ) {
     composable(
         route = coinDetailRoute.plus("/{$idArg}"),
+        enterTransition = {
+            slideIntoContainer(
+                animationSpec = tween(200),
+                towards = AnimatedContentTransitionScope.SlideDirection.Right,
+            )
+        },
+        exitTransition = {
+            slideOutOfContainer(
+                animationSpec = tween(200),
+                towards = AnimatedContentTransitionScope.SlideDirection.Left,
+            )
+        },
+        popEnterTransition = {
+            slideIntoContainer(
+                animationSpec = tween(200),
+                towards = AnimatedContentTransitionScope.SlideDirection.Right,
+            )
+        },
+        popExitTransition = {
+            slideOutOfContainer(
+                animationSpec = tween(200),
+                towards = AnimatedContentTransitionScope.SlideDirection.Left,
+            )
+        },
         arguments = listOf(
             navArgument(idArg) {
                 type = NavType.StringType

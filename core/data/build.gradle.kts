@@ -10,4 +10,7 @@ dependencies {
     api(projects.core.common)
     api(projects.core.model)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.moshi.kotlin.core)
+
+    ksp(libs.moshi.kotlin.codegen)
 }

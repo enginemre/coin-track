@@ -18,6 +18,7 @@ import com.engin.cointrack.home.ui.navigateToHome
 import com.engin.cointrack.navigation.TopLevelDestination
 import com.engin.cointrack.search.ui.navigateToSearch
 import com.engin.cointrack.search.ui.searchRoute
+import com.engin.cointrack.ui.login.loginRoute
 import kotlinx.coroutines.CoroutineScope
 
 @Composable
@@ -25,6 +26,7 @@ fun rememberCoinTrackAppState(
 //    networkMonitor: NetworkMonitor,
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
     navController: NavHostController = rememberNavController(),
+    isLogin: Boolean,
 ): CoinTrackAppState {
     return remember(
         navController,
@@ -34,6 +36,7 @@ fun rememberCoinTrackAppState(
         CoinTrackAppState(
             navController = navController,
             coroutineScope = coroutineScope,
+            isLogin = isLogin,
 //            networkMonitor = networkMonitor,
         )
     }
@@ -42,6 +45,7 @@ fun rememberCoinTrackAppState(
 @Stable
 class CoinTrackAppState(
     val navController: NavHostController,
+    val isLogin: Boolean,
     coroutineScope: CoroutineScope,
 //    networkMonitor: NetworkMonitor,
 ) {
@@ -65,7 +69,9 @@ class CoinTrackAppState(
             favouriteRoute -> TopLevelDestination.Saved
             else -> null
         }
-
+    val startDestination: String
+        @Composable
+        get() = if (isLogin) homeRoute else loginRoute
     /*val isOffline = networkMonitor.isOnline
         .map(Boolean::not)
         .stateIn(

@@ -32,7 +32,9 @@ fun CoinTrackNavHost(
         home(
             navigateToCoinDetail = navController::navigateToCoinDetail,
         )
-        search()
+        search(
+            navigateCoinDetail = navController::navigateToCoinDetail,
+        )
         favourite(
             navigateCoinDetail = navController::navigateToCoinDetail,
         )

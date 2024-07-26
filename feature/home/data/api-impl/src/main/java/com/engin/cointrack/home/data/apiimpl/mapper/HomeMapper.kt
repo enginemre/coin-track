@@ -1,9 +1,9 @@
 package com.engin.cointrack.home.data.apiimpl.mapper
 
 import android.icu.text.DecimalFormat
+import com.engin.cointrack.core.data.dto.CoinMarketDataDto
 import com.engin.cointrack.core.model.Coin
 import com.engin.cointrack.home.data.apiimpl.ktor.dto.CoinMarketDataKtorDto
-import com.engin.cointrack.home.data.apiimpl.retorfit.dto.CoinMarketDataDto
 import javax.inject.Inject
 
 class HomeMapper @Inject constructor() {

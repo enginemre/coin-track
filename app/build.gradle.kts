@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.convention.android.application)
     alias(libs.plugins.convention.android.application.compose)
+    alias(libs.plugins.convention.android.application.firebase)
     alias(libs.plugins.convention.android.hilt)
     alias(libs.plugins.convention.kotlinter)
 }
@@ -37,10 +38,15 @@ android {
 dependencies {
     implementation(projects.core.designsystem)
     implementation(projects.core.model)
+    implementation(projects.core.data)
+    implementation(projects.core.domain)
     implementation(projects.core.network)
     implementation(projects.core.ui)
-    implementation(projects.core.data)
     implementation(projects.feature.authentication.ui)
+    implementation(projects.feature.authentication.domain)
+    implementation(projects.feature.authentication.data.api)
+    implementation(projects.feature.authentication.data.apiImpl)
+    implementation(projects.feature.authentication.data.domainImpl)
     implementation(projects.feature.home.ui)
     implementation(projects.feature.home.domain)
     implementation(projects.feature.home.data.domainImpl)
@@ -49,6 +55,10 @@ dependencies {
     implementation(projects.feature.home.data.api)
     implementation(projects.feature.home.data.apiImpl)
     implementation(projects.feature.search.ui)
+    implementation(projects.feature.search.domain)
+    implementation(projects.feature.search.data.api)
+    implementation(projects.feature.search.data.apiImpl)
+    implementation(projects.feature.search.data.domainImpl)
     implementation(projects.feature.coinDetail.ui)
     implementation(projects.feature.coinDetail.domain)
     implementation(projects.feature.coinDetail.data.api)
@@ -74,6 +84,8 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.compose.material.icons.extended)
     implementation(libs.androidx.compose.material3.adaptive)
+    implementation(libs.androidx.core.splashscreen)
+    implementation(platform(libs.firebase.bom))
 
     testImplementation(libs.junit4)
 

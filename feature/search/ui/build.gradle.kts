@@ -9,5 +9,9 @@ android {
 }
 
 dependencies {
+    implementation(projects.feature.search.domain)
+    implementation(projects.core.model)
+    implementation(projects.core.ui)
+    implementation(libs.compose.paging)
     implementation(libs.androidx.activity.compose)
 }

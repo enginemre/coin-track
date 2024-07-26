@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.engin.cointrack.designsystem.theme.CoinTrackTheme
 import com.engin.cointrack.ui.CoinTrackApp
 import com.engin.cointrack.ui.rememberCoinTrackAppState
@@ -12,14 +14,19 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    private val viewModel by viewModels<MainViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen()
         enableEdgeToEdge(
             statusBarStyle = SystemBarStyle.auto(lightScrim, darkScrim),
         )
         setContent {
             val appState = rememberCoinTrackAppState(
 //                networkMonitor = networkMonitor,
+                isLogin = viewModel.isLogin(),
             )
             CoinTrackTheme {
                 CoinTrackApp(appState = appState)

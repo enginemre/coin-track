@@ -1,6 +1,6 @@
 package com.engin.cointrack.home.data.apiimpl.retorfit
 
-import com.engin.cointrack.home.data.apiimpl.retorfit.dto.CoinMarketResponse
+import com.engin.cointrack.core.data.dto.CoinMarketResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

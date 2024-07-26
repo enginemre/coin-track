@@ -3,11 +3,11 @@ package com.engin.cointrack.home.ui
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.ExperimentalMaterialApi
@@ -15,6 +15,7 @@ import androidx.compose.material.pullrefresh.PullRefreshIndicator
 import androidx.compose.material.pullrefresh.pullRefresh
 import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.NavigationBarDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
@@ -30,7 +31,6 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -41,13 +41,13 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemContentType
 import androidx.paging.compose.itemKey
 import com.engin.cointrack.core.model.Coin
+import com.engin.cointrack.core.ui.component.CoinCard
+import com.engin.cointrack.core.ui.component.PagingError
 import com.engin.cointrack.designsystem.component.ErrorContent
-import com.engin.cointrack.feature.home.ui.R
-import com.engin.cointrack.home.ui.component.CoinCard
-import com.engin.cointrack.home.ui.component.PagingError
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import java.io.IOException
+import com.engin.cointrack.core.ui.R as uiR
 
 @Suppress("UnusedPrivateMember")
 @Composable
@@ -91,14 +91,14 @@ fun HomeScreen(
     Scaffold(
         modifier = modifier,
         snackbarHost = { SnackbarHost(snackBarHostState) },
-        contentWindowInsets = WindowInsets(0, 0, 0, 0),
+        contentWindowInsets = WindowInsets.statusBars,
     ) { paddingValues ->
         Box(
             modifier = Modifier
                 .fillMaxSize()
                 .pullRefresh(pullRefreshState)
                 .padding(paddingValues)
-                .padding(WindowInsets.statusBars.asPaddingValues()),
+                .windowInsetsPadding(NavigationBarDefaults.windowInsets),
         ) {
             if ((coinList.loadState.refresh as? LoadState.Error)?.error is IOException) {
                 ErrorSnackBar(coinList = coinList, snackBarHostState = snackBarHostState)
@@ -108,7 +108,7 @@ fun HomeScreen(
                     .fillMaxSize(),
                 contentPadding = PaddingValues(horizontal = 16.dp),
             ) {
-                when (coinList.loadState.refresh) {
+                when (coinList.loadState.mediator?.refresh) {
                     LoadState.Loading -> {
                         items(shimmerList) { item ->
                             CoinCard(
@@ -180,7 +180,6 @@ fun HomeScreen(
                 refreshing = isPullToRefreshLoading,
                 state = pullRefreshState,
                 modifier = Modifier.align(Alignment.TopCenter),
-                backgroundColor = if (isPullToRefreshLoading) Color.Red else Color.Green,
             )
         }
     }
@@ -192,8 +191,8 @@ fun ErrorSnackBar(
     snackBarHostState: SnackbarHostState,
 ) {
     val scope = rememberCoroutineScope()
-    val connectionString = stringResource(id = R.string.connection_error_message)
-    val retryString = stringResource(id = R.string.retry)
+    val connectionString = stringResource(id = uiR.string.connection_error_message)
+    val retryString = stringResource(id = uiR.string.retry)
     LaunchedEffect((coinList.loadState.refresh as? LoadState.Error)?.error is IOException) {
         scope.launch {
             val action = snackBarHostState.showSnackbar(

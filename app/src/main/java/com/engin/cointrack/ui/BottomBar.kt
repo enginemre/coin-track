@@ -37,7 +37,6 @@ fun CoinTrackBottomBar(
 ) {
     NavigationBar(
         modifier = modifier,
-
     ) {
         Row(
             modifier =

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Templete</string>
+    <string name="app_name">Coin Track</string>
     <string name="home_label">Home</string>
     <string name="search_label">Search</string>
     <string name="saved_label">Bookmarks</string>

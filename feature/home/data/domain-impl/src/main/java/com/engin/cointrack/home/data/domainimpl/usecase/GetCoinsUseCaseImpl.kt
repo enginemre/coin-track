@@ -32,7 +32,7 @@ class GetCoinsUseCaseImpl @Inject constructor(
         config = PagingConfig(
             pageSize = PAGE_SIZE,
             prefetchDistance = DEFAULT_PRE_FETCH_DISTANCE,
-            initialLoadSize = PAGE_SIZE,
+            initialLoadSize = PAGE_SIZE / 4,
         ),
         remoteMediator = CoinsRemoteMediator(
             homeLocalDataSource = homeLocalDataSource,
@@ -46,7 +46,7 @@ class GetCoinsUseCaseImpl @Inject constructor(
     }.flowOn(ioDispatcher)
 
     companion object {
-        const val PAGE_SIZE = 15
+        const val PAGE_SIZE = 40
         const val DEFAULT_PRE_FETCH_DISTANCE = 1
     }
 }

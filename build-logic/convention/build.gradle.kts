@@ -66,6 +66,10 @@ gradlePlugin {
             id = "convention.android.library.jacoco"
             implementationClass = "AndroidLibraryJacocoConventionPlugin"
         }
+        register("androidFirebase") {
+            id = "convention.android.application.firebase"
+            implementationClass = "AndroidApplicationFirebaseConventionPlugin"
+        }
         register("androidTest") {
             id = "convention.android.test"
             implementationClass = "AndroidTestConventionPlugin"

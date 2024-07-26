@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "320268342234",
+    "project_id": "cointracker-41225",
+    "storage_bucket": "cointracker-41225.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320268342234:android:3a3a20cad088a907e9a6e3",
+        "android_client_info": {
+          "package_name": "com.engin.cointrack"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUKR3Q6zAkVwX7mlbp54AYecJSHIQDopI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320268342234:android:08b96d80dd7527d1e9a6e3",
+        "android_client_info": {
+          "package_name": "com.engin.cointrack.beta"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUKR3Q6zAkVwX7mlbp54AYecJSHIQDopI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320268342234:android:b94ffa34b7118032e9a6e3",
+        "android_client_info": {
+          "package_name": "com.engin.cointrack.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUKR3Q6zAkVwX7mlbp54AYecJSHIQDopI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
