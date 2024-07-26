@@ -20,7 +20,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
-
+@Suppress("MagicNumber")
 class GetCoinsUseCaseImpl @Inject constructor(
     @Dispatcher(CoinTrackDispatcher.IO)
     private val ioDispatcher: CoroutineDispatcher,

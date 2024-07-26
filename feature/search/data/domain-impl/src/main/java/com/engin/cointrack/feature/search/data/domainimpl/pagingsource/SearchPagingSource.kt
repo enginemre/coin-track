@@ -16,6 +16,7 @@ class SearchPagingSource(
         return null
     }
 
+    @Suppress("TooGenericExceptionCaught")
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Coin> {
         val position = params.key ?: InitialLoadSize
         val offset = if (params.key != null) ((position - 1) * NetworkPageSize) + 1 else InitialLoadSize

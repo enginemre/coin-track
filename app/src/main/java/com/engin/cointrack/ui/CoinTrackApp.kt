@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import com.engin.cointrack.designsystem.component.CoinTrackBackground
 import com.engin.cointrack.navigation.CoinTrackNavHost
 
+@Suppress("MagicNumber")
 @Composable
 fun CoinTrackApp(
     appState: CoinTrackAppState,

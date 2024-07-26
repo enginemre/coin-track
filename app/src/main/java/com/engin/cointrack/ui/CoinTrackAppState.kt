@@ -23,10 +23,9 @@ import kotlinx.coroutines.CoroutineScope
 
 @Composable
 fun rememberCoinTrackAppState(
-//    networkMonitor: NetworkMonitor,
+    isLogin: Boolean,
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
     navController: NavHostController = rememberNavController(),
-    isLogin: Boolean,
 ): CoinTrackAppState {
     return remember(
         navController,

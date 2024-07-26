@@ -29,6 +29,7 @@ fun NavController.navigateToCoinDetail(id: String, navOptions: NavOptions? = nul
     this.navigate(route, navOptions)
 }
 
+@Suppress("MagicNumber")
 fun NavGraphBuilder.coinDetail(
     navigateBack: () -> Unit,
 ) {
